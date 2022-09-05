@@ -1,22 +1,20 @@
 <template>
- <div>
-   item
- </div>
+  <div>
+    <p>name : {{ itemInfo }}</p>
+  </div>
 </template>
 
 <script>
 export default {
-  components: {},
-  data() {
-    return {
-      sampleData: ''
+  computed: {
+    itemInfo() {
+      return this.$store.state.item;
     }
   },
-  setup() {},
-  created() {},
-  mounted() {},
-  unmounted() {},
-  methods: {}
+  created() {
+    const id = this.$route.name;
+    this.$store.dispatch('FETCH_ITEM', id);
+  }
 }
 </script>
 
