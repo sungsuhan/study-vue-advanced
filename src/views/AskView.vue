@@ -1,25 +1,15 @@
 <template>
  <div>
-   <p v-for="item in ask" v-bind:key="item.id">
-     <a v-bind:href="item.url">
-       {{ item.title }}
-     </a>
-     <small>{{item.time_ago}} by {{ item.user }}</small>
-   </p>
+   <list-item></list-item>
  </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import ListItem from "@/components/ListItem";
 
 export default {
-  computed: {
-    ...mapState({
-      ask: state => state.ask
-    })
-  },
-  created() {
-    this.$store.dispatch('FETCH_ASK');
+  components: {
+    ListItem
   }
 }
 </script>

@@ -9,5 +9,13 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state,
     mutations,
-    actions
+    actions,
+    getters: {
+        fetchedAsk(state) {
+            return state.ask;
+        },
+        fetchedItem(state) {
+            return state.item;
+        }
+    }
 })

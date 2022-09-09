@@ -1,18 +1,14 @@
 <template>
   <div>
-    <p v-for="job in this.$store.state.jobs" v-bind:key="job.id">
-      <a :href="job.url">
-        {{ job.title }}
-      </a>
-      <small>{{job.time_ago}}, {{ job.domain }}</small>
-    </p>
+    <list-item></list-item>
   </div>
 </template>
 
 <script>
+import ListItem from "@/components/ListItem";
 export default {
-  created() {
-    this.$store.dispatch('FETCH_JOBS')
+  components: {
+    ListItem
   }
 }
 </script>
