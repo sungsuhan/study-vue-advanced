@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import NewsView from '@/views/NewsView'
-import AskView from '@/views/AskView'
-import JobsView from '@/views/JobsView'
 import UserView from "@/views/UserView";
 import ItemView from "@/views/ItemView";
+import JobsView from "@/views/JobsView";
+import AskView from "@/views/AskView";
+import NewsView from "@/views/NewsView";
 
 Vue.use(VueRouter);
 
@@ -16,21 +16,48 @@ export const router = new VueRouter({
             redirect: '/news'
         },
         {
-            // path: url 주소
             path: '/news',
             name: 'news',
-            // component: url 주소로 갔을 때 표시될 컴포넌트
-            component: NewsView,
+            // component: createListView('NewsView'),
+            components: NewsView,
+            // beforeEnter: (to, from, next) => {
+            //     bus.$emit('start:spinner');
+            //     store.dispatch('FETCH_LIST', to.name)
+            //         .then(() => {
+            //             next();
+            //         })
+            //         .catch((error) => {
+            //             console.log(error);
+            //         });
+            // }
         },
         {
             path: '/ask',
             name: 'ask',
-            component: AskView,
+            // component: createListView('AskView'),
+            components: AskView,
+            // beforeEnter: (to, from, next) => {
+            //     bus.$emit('start:spinner');
+            //     store.dispatch('FETCH_LIST', to.name)
+            //         .then(() => next())
+            //         .catch((error) => {
+            //             console.log(error);
+            //         });
+            // }
         },
         {
             path: '/jobs',
             name: 'jobs',
-            component: JobsView,
+            // component: createListView('JobsView'),
+            components: JobsView,
+            // beforeEnter: (to, from, next) => {
+            //     bus.$emit('start:spinner');
+            //     store.dispatch('FETCH_LIST', to.name)
+            //         .then(() => next())
+            //         .catch((error) => {
+            //             console.log(error);
+            //         });
+            // }
         },
         {
             path: '/user/:id',
